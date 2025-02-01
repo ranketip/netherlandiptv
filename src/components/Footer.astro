@@ -1,0 +1,47 @@
+---
+// src/components/Footer.astro
+---
+
+<footer class="bg-gray-900 text-white py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="grid md:grid-cols-3 gap-8">
+        {/* Company Info Column */}
+        <div>
+          <h3 class="text-xl font-bold mb-4">Over Ons</h3>
+          <p class="text-gray-300 mb-4">
+            Ontdek waarom iptv-kastje-kopen.nl de beste keuze is voor IPTV kopen in Nederland.
+          </p>
+          <a href="/#pricing" class="text-orange-500 hover:text-orange-400 transition-colors">
+            Lees meer &rarr;
+          </a>
+        </div>
+  
+        {/* Quick Links Column */}
+        <div>
+          <h3 class="text-xl font-bold mb-4">Snelle Links</h3>
+          <ul class="space-y-2">
+            <li><a href="/#pricing" class="text-gray-300 hover:text-white transition-colors">IPTV Pakketten</a></li>
+            <li><a href="/#faq" class="text-gray-300 hover:text-white transition-colors">Privacybeleid</a></li>
+          </ul>
+        </div>
+  
+        {/* Contact Column */}
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact</h3>
+          <p class="text-gray-300 mb-2">Neem contact op voor vragen of ondersteuning.</p>
+          <div class="space-y-2">
+            <p class="text-gray-300">Email: support@iptv-kastje-kopen.nl</p>
+            <p class="text-gray-300">Tel: +31 (0)12 345 6789</p>
+          </div>
+        </div>
+  
+        {/* Newsletter Column */}
+     
+      </div>
+  
+      {/* Copyright */}
+      <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+        © {new Date().getFullYear()} iptv-kastje-kopen.nl. Alle rechten voorbehouden.
+      </div>
+    </div>
+  </footer>

@@ -1,0 +1,93 @@
+---
+// src/components/LegalityAndFAQ.astro
+
+const faqItems = [
+  {
+    question: "Wat is het verschil tussen IPTV en normale TV?",
+    answer: "IPTV streamt content via het internet, terwijl normale TV gebruikmaakt van satelliet- of kabelverbindingen."
+  },
+  {
+    question: "Hoe kies ik het beste IPTV kastje?",
+    answer: "Bij iptv-kastje-kopen.nl helpen we je het perfecte IPTV kastje te kiezen op basis van jouw behoeften."
+  },
+  {
+    question: "Is IPTV legaal in Nederland?",
+    answer: "Ja, mits je kiest voor een legale provider zoals iptv-kastje-kopen.nl."
+  },
+  {
+    question: "Kan ik een IPTV kastje zelf installeren?",
+    answer: "Absoluut! Wij bieden duidelijke handleidingen en ondersteuning om je te helpen."
+  }
+];
+---
+
+<section id="faq" class="bg-white py-16">
+  <div class="container mx-auto px-4 max-w-7xl">
+    {/* Legality Section */}
+    <div class="bg-orange-50 rounded-2xl p-8 mb-16">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 text-center">
+          Is IPTV Legaal in Nederland? Alles Wat Je Moet Weten
+        </h2>
+        
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-orange-500 text-white flex items-center justify-center mr-6 flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Veel mensen vragen zich af of IPTV legaal is in Nederland. Het antwoord is ja, mits je kiest voor een legale IPTV provider zoals iptv-kastje-kopen.nl. Wij werken uitsluitend met gecertificeerde aanbieders die voldoen aan de Nederlandse wetgeving.
+          </p>
+        </div>
+        
+        <div class="flex items-center">
+          <div class="w-16 h-16 rounded-full bg-orange-500 text-white flex items-center justify-center mr-6 flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Let op: Illegale IPTV-diensten kunnen boetes en problemen veroorzaken. Kies daarom altijd voor een betrouwbare provider zoals iptv-kastje-kopen.nl. Wij garanderen een veilige en legale IPTV-ervaring.
+          </p>
+        </div>
+        
+        <div class="text-center mt-8">
+          <a 
+            href="/#pricing" 
+            class="inline-block bg-orange-500 text-white py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors duration-300 font-bold"
+          >
+            Bekijk Onze IPTV Pakketten
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* FAQ Section */}
+    <div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900 text-center">
+        Veelgestelde Vragen over IPTV Kopen en IPTV Kastjes
+      </h2>
+      
+      <div class="space-y-6 max-w-4xl mx-auto">
+        {faqItems.map((item) => (
+          <div class="bg-white border border-gray-200 rounded-2xl shadow-md">
+            <div class="p-6">
+              <div class="flex items-start mb-4">
+                <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center mr-4 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">{item.question}</h3>
+              </div>
+              <p class="text-gray-700 pl-14">{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

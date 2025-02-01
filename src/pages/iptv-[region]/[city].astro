@@ -1,0 +1,273 @@
+---
+// src/pages/iptv-[region]/[city].astro
+import { locations, slugify } from '../../data/data';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const paths = [];
+  Object.entries(locations).forEach(([region, cities]) => {
+    cities.forEach(city => {
+      paths.push({
+        params: { 
+          region: slugify(region),
+          city: slugify(city)
+        },
+        props: { 
+          region,
+          city
+        }
+      });
+    });
+  });
+  return paths;
+}
+
+const { region, city } = Astro.props;
+
+const providers = [
+  {
+    name: `iptv-kastje-kopen.nl ${city}`,
+    description: `De nummer 1 in ${city} voor legale IPTV-abonnementen en hoogwaardige IPTV kastjes. Met meer dan 15.000 tevreden klanten bieden wij de beste service en ondersteuning.`,
+    icon: 'crown',
+    isMainProvider: true
+  },
+  {
+    name: 'Pandora IPTV',
+    description: `Een populaire keuze voor internationale zenders en on-demand content in ${city}.`,
+    icon: 'globe'
+  },
+  {
+    name: 'Flix IPTV',
+    description: `Perfect voor sportliefhebbers met toegang tot alle grote sportkanalen in ${city}.`,
+    icon: 'play'
+  }
+];
+
+const iptvBoxes = [
+  {
+    name: 'Smart IPTV Box',
+    description: `Perfect voor eenvoudige installatie en gebruik in ${city}.`,
+    icon: 'tv'
+  },
+  {
+    name: 'MAG Box',
+    description: `Ideaal voor een professionele IPTV-ervaring in ${city}.`,
+    icon: 'box'
+  },
+  {
+    name: 'Android TV Box',
+    description: `Combineer IPTV met andere streamingdiensten in ${city}.`,
+    icon: 'android'
+  }
+];
+
+const benefits = [
+  'Toegang tot duizenden kanalen: Geniet van live tv, sport, films en series uit de hele wereld.',
+  'On-demand content: Kijk wat je wilt, wanneer je wilt.',
+  'Kostenefficiënt: Geen dure kabelabonnementen meer nodig.',
+  'Eenvoudige installatie: Sluit je IPTV kastje aan en begin direct met kijken.'
+];
+---
+
+<Layout 
+  title={`IPTV Kopen in ${city} | Beste IPTV Kastje en Abonnementen | iptv-kastje-kopen.nl`}
+  description={`Op zoek naar de beste IPTV-abonnementen en IPTV kastjes in ${city}? Bij iptv-kastje-kopen.nl vind je de nieuwste aanbiedingen voor 2025. Vergelijk providers en geniet van legale IPTV in ${city}`}
+>
+
+<div class="bg-gray-50">
+  <!-- Hero Section -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            IPTV Kopen in {city} – Vind de Beste IPTV Kastje en Abonnementen
+        </h1>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
+            Op zoek naar de beste IPTV-abonnementen en IPTV kastjes in {city}? Bij iptv-kastje-kopen.nl vind je uitgebreide reviews, handige tips en de nieuwste aanbiedingen voor 2025. <br/>
+            Of je nu een beginner bent of een doorgewinterde gebruiker, wij helpen je het perfecte IPTV kastje te kiezen en legaal IPTV te kopen in {city}. Snel, eenvoudig en betrouwbaar!
+        </p>
+        <a 
+          href="/#pricing"
+          class="inline-block bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-orange-600 transition-colors duration-300"
+        >
+          Vergelijk IPTV-abonnementen in {city}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is IPTV Section -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+          Wat is IPTV en Waarom IPTV Kopen in {city}?
+        </h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          IPTV (Internet Protocol Television) is de toekomst van televisie kijken. Met IPTV stream je live tv, films en series via het internet, zonder dure abonnementen of ingewikkelde installaties.
+          In {city} wordt IPTV kopen steeds populairder vanwege de brede keuze aan internationale zenders, on-demand content en scherpe prijzen.
+        </p>
+      </div>
+
+      <div class="bg-orange-50 rounded-2xl p-8">
+        <h3 class="text-2xl font-bold mb-6 text-gray-900">Voordelen van IPTV in {city}</h3>
+        <ul class="space-y-4">
+          {benefits.map((benefit) => (
+            <li class="flex items-center space-x-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-gray-700 text-lg">{benefit}</span>
+            </li>
+          ))}
+        </ul>
+        <h3 class="text-lg font-medium mt-10 text-gray-900">Bij iptv-kastje-kopen.nl helpen we je de beste IPTV-abonnementen en IPTV kastjes te vinden, zodat je optimaal kunt genieten van jouw favoriete programma's in {city}.</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Providers Section -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+          Beste IPTV Providers in {city} voor 2025
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        {providers.map((provider) => (
+          <div class={`
+            bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden 
+            transform transition-all duration-300 hover:scale-105
+            ${provider.isMainProvider ? 'border-orange-500 border-2' : ''}
+          `}>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class={`
+                  w-12 h-12 rounded-full flex items-center justify-center mr-4
+                  ${provider.isMainProvider ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-700'}
+                `}>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">{provider.name}</h3>
+              </div>
+              <p class="text-gray-700 mb-4">{provider.description}</p>
+              {provider.isMainProvider && (
+                <a 
+                  href="/#pricing" 
+                  class="block w-full bg-orange-500 text-white py-3 text-center font-bold rounded-lg hover:bg-orange-600 transition-colors duration-300"
+                >
+                  Bekijk Aanbod
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- IPTV Boxes Section -->
+  <section class="bg-gray-50 py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+          Het Perfecte IPTV Kastje Kopen in {city}
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {iptvBoxes.map((box) => (
+          <div class="bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">{box.name}</h3>
+              </div>
+              <p class="text-gray-700">{box.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal Section with Warning -->
+  <section class="bg-orange-50 py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+          Is IPTV Legaal in {city}?
+        </h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          Veel mensen vragen zich af of IPTV legaal is in {city}. Het antwoord is ja, mits je kiest voor een legale IPTV provider zoals iptv-kastje-kopen.nl. Wij werken uitsluitend met gecertificeerde aanbieders die voldoen aan de Nederlandse wetgeving.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 border-l-4 border-orange-500">
+        <h3 class="text-xl font-bold mb-4 text-gray-900">Let op:</h3>
+        <p class="text-gray-700">
+          Illegale IPTV-diensten kunnen boetes en problemen veroorzaken. Kies daarom altijd voor een betrouwbare provider zoals <strong>iptv-kastje-kopen.nl</strong> in <strong>{city}</strong>. Wij garanderen een veilige en legale IPTV-ervaring.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900 text-center">
+        Veelgestelde Vragen over IPTV Kopen en IPTV Kastjes in {city}
+      </h2>
+
+      <div class="space-y-6 max-w-3xl mx-auto">
+        <div class="bg-gray-50 rounded-xl p-6">
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Wat is het verschil tussen IPTV en normale TV?</h3>
+          <p class="text-gray-700"><strong>IPTV</strong> streamt content via het internet, terwijl normale TV gebruikmaakt van satelliet- of kabelverbindingen.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-6">
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Hoe kies ik het beste IPTV kastje in {city}?</h3>
+          <p class="text-gray-700">Bij <strong>iptv-kastje-kopen.nl</strong> helpen we je het perfecte <strong>IPTV kastje</strong> te kiezen op basis van jouw behoeften in <strong>{city}</strong>.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-6">
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Is IPTV legaal in {city}?</h3>
+          <p class="text-gray-700">Ja, mits je kiest voor een <strong>legale provider</strong> zoals <strong>iptv-kastje-kopen.nl</strong>.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-6">
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Kan ik een IPTV kastje zelf installeren in {city}?</h3>
+            <p class="text-gray-700">Absoluut! Wij bieden duidelijke handleidingen en ondersteuning om je te helpen in <strong>{city}</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="bg-orange-50 py-16">
+    <div class="container mx-auto px-4 max-w-7xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+        Klaar om IPTV te Kopen in {city}? Vind de Beste Aanbiedingen voor 2025!
+      </h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
+        Bij <strong>iptv-kastje-kopen.nl</strong> vind je de beste <strong>IPTV-abonnementen</strong> en <strong>IPTV kastjes</strong> voor 2025 in <strong>{city}</strong>. Vergelijk nu onze aanbiedingen en begin vandaag nog met genieten van jouw favoriete content!
+      </p>
+      <a 
+        href="#" 
+        class="inline-block bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-orange-600 transition-colors duration-300"
+      >
+        👉 Bekijk Aanbiedingen
+      </a>
+    </div>
+  </section>
+</div>
+
+</Layout>

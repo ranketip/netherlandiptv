@@ -1,0 +1,124 @@
+---
+// src/components/Header.astro
+import { locations, slugify } from '../data/data';
+
+const regions = Object.keys(locations);
+const { currentRegion } = Astro.props;
+---
+
+<script>
+  // Toggle mobile menu
+  const menuButton = document.getElementById('menuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const desktopRegionSelect = document.getElementById('desktopRegionSelect');
+  const mobileRegionSelect = document.getElementById('mobileRegionSelect');
+
+  menuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('translate-x-full');
+  });
+
+  // Handle region select for both mobile and desktop
+  const handleRegionChange = (e) => {
+    const value = e.target.value;
+    if (value) {
+      window.location.href = `/iptv-${value.toLowerCase()}`;
+    }
+  };
+
+  desktopRegionSelect?.addEventListener('change', handleRegionChange);
+  mobileRegionSelect?.addEventListener('change', handleRegionChange);
+</script>
+
+<header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+  <nav class="container mx-auto px-4 max-w-7xl flex items-center justify-between py-4">
+    {/* Logo */}
+    <div class="flex items-center">
+      <a href="/" class="flex text-2xl font-bold text-orange-600 items-center">
+        IPTV Kastje
+      </a>
+    </div>
+
+    {/* Desktop Region Dropdown */}
+    <div class="hidden md:block ml-12">
+      <select 
+        id="desktopRegionSelect"
+        class="bg-white border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:border-orange-500"
+      >
+        <option value="">Kies een regio</option>
+        {regions.map((region) => (
+          <option value={slugify(region)} selected={region === currentRegion}>
+            {region}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    {/* Desktop Navigation */}
+    <div class="hidden md:flex flex-grow justify-center space-x-8">
+      <a href="/" class="text-gray-900 hover:text-orange-500 transition-colors font-medium">Home</a>
+      <a href="/#pricing" class="text-gray-900 hover:text-orange-500 transition-colors font-medium">Pakketten</a>
+      <a href="/#faq" class="text-gray-900 hover:text-orange-500 transition-colors font-medium">Veelgestelde Vragen</a>
+    </div>
+
+    {/* Desktop CTA */}
+    <div class="hidden md:block">
+      <a href="/#pricing" class="inline-block bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors font-bold">
+        IPTV Kopen
+      </a>
+    </div>
+
+    {/* Mobile Menu Button */}
+    <button 
+      id="menuButton"
+      class="md:hidden p-2 text-gray-600 hover:text-orange-500 focus:outline-none"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  {/* Mobile Menu */}
+  <div 
+    id="mobileMenu"
+    class="fixed inset-0 bg-white transform translate-x-full transition-transform duration-300 md:hidden"
+    style="top: 73px;"
+  >
+    <div class="p-4">
+      {/* Mobile Region Dropdown */}
+      <div class="mb-8">
+        <label class="block text-gray-700 text-sm font-bold mb-2">
+          Selecteer Regio
+        </label>
+        <select 
+          id="mobileRegionSelect"
+          class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:border-orange-500"
+        >
+          <option value="">Kies een regio</option>
+          {regions.map((region) => (
+            <option value={region} selected={region === currentRegion}>
+              {region}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div class="space-y-4">
+        <a href="/" class="block text-gray-900 hover:text-orange-500 transition-colors font-medium text-lg">Home</a>
+        <a href="/#pricing" class="block text-gray-900 hover:text-orange-500 transition-colors font-medium text-lg">Pakketten</a>
+        <a href="/#faq" class="block text-gray-900 hover:text-orange-500 transition-colors font-medium text-lg">Veelgestelde Vragen</a>
+      </div>
+
+      {/* Mobile CTA */}
+      <div class="mt-8">
+        <a href="/#pricing" class="block w-full bg-orange-500 text-white py-3 text-center rounded-lg hover:bg-orange-600 transition-colors font-bold">
+          IPTV Kopen
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+{/* Spacer */}
+<div class="h-20"></div>

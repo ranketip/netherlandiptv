@@ -1,0 +1,94 @@
+---
+// src/components/TopProviders.astro
+
+const providers = [
+  {
+    name: 'iptv-kastje-kopen.nl',
+    description: 'De nummer 1 in Nederland voor legale IPTV-abonnementen en hoogwaardige IPTV kastjes. Met meer dan 15.000 tevreden klanten bieden wij de beste service en ondersteuning.',
+    icon: 'crown',
+    isMainProvider: true
+  },
+  {
+    name: 'Pandora IPTV',
+    description: 'Een populaire keuze voor internationale zenders en on-demand content.',
+    icon: 'globe'
+  },
+  {
+    name: 'Flix IPTV',
+    description: 'Perfect voor sportliefhebbers met toegang tot alle grote sportkanalen.',
+    icon: 'play'
+  }
+];
+
+const benefits = [
+  'Scherpe prijzen en geen verborgen kosten',
+  'Snelle levering en eenvoudige installatie',
+  '24/7 klantenondersteuning voor al je vragen'
+];
+---
+
+<section class="bg-white py-16">
+  <div class="container mx-auto px-4 max-w-7xl">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+        Beste IPTV Providers in Nederland voor 2025
+      </h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+        Bij iptv-kastje-kopen.nl hebben we de beste IPTV providers voor jou geselecteerd. Onze aanbevelingen zijn gebaseerd op betrouwbaarheid, prijs en klanttevredenheid. Hier zijn de topkeuzes voor 2025:
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      {providers.map((provider) => (
+        <div class={`
+          bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden 
+          transform transition-all duration-300 hover:scale-105
+          ${provider.isMainProvider ? 'border-orange-500 border-2' : ''}
+        `}>
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class={`
+                w-12 h-12 rounded-full flex items-center justify-center mr-4
+                ${provider.isMainProvider ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-700'}
+              `}>
+                {provider.isMainProvider ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                )}
+              </div>
+              <h3 class="text-xl font-bold text-gray-900">{provider.name}</h3>
+            </div>
+            <p class="text-gray-700 mb-4">{provider.description}</p>
+            {provider.isMainProvider && (
+              <a 
+                href="/#pricing" 
+                class="block w-full bg-orange-500 text-white py-3 text-center font-bold rounded-lg hover:bg-orange-600 transition-colors duration-300"
+              >
+                Koop IPTV
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-orange-50 rounded-2xl p-8">
+      <h3 class="text-2xl font-bold mb-6 text-gray-900">Waarom kiezen voor iptv-kastje-kopen.nl?</h3>
+      <ul class="space-y-4">
+        {benefits.map((benefit) => (
+          <li class="flex items-center space-x-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-gray-700 text-lg">{benefit}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

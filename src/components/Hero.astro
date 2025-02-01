@@ -1,0 +1,56 @@
+---
+// src/components/Hero.ast
+---
+
+<section class="hero-section relative min-h-[70vh] flex items-center justify-center bg-white text-gray-900 overflow-hidden">
+    <div class="container mx-auto px-12 relative z-10 grid md:grid-cols-2 gap-8 items-center">
+      <div class="hero-content space-y-6">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-500">
+            IPTV Kopen in Nederland: Vind het Perfecte IPTV Kastje
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-700 mb-8">
+            Op zoek naar de beste IPTV-abonnementen en IPTV kastjes in Nederland? Bij ons vind je uitgebreide reviews, handige tips en de nieuwste aanbiedingen voor 2025.
+
+            <span> Of je nu een beginner bent of een doorgewinterde gebruiker, wij helpen je het perfecte IPTV kastje te kiezen en legaal IPTV te kopen. Snel, eenvoudig en betrouwbaar!</span>
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 md:pt-12">
+          <a 
+            href="/#pricing" 
+            class="btn-primary bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span>IPTV Kopen</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-image hidden md:flex justify-center items-center">
+        <div class="relative w-full max-w-md">
+          <div class="absolute -inset-4 bg-orange-400 rounded-full opacity-30 blur-2xl"></div>
+          <img 
+            src="/hero.jpeg" 
+            alt="IPTV Device" 
+            class="relative z-10 w-full h-auto transform hover:scale-105 transition duration-300 rounded-lg shadow-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-orange-50 to-transparent"></div>
+  </section>
+  
+  <style>
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+
+    }
+  </style>
