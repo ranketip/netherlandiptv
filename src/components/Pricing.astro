@@ -4,6 +4,7 @@ const pricingPlans = [
     name: 'SILVER',
     price: '€11,99',
     duration: '1 Maand',
+    href: "https://iptv-kastje-kopen.shop/product/silver-pack-1-maand-abonnement/",
  
     features: [
       '+50.000 Live IPTV-kanalen',
@@ -21,6 +22,7 @@ const pricingPlans = [
     name: 'GOLD',
     price: '€47,99',
     duration: '6 Maanden',
+    href: "https://iptv-kastje-kopen.shop/product/gold-pack-6-maand-abonnement/",
    
     features: [
       '+50.000 Live IPTV-kanalen',
@@ -38,6 +40,7 @@ const pricingPlans = [
     name: 'PLATINUM',
     price: '€59,99',
     duration: '1 Jaar',
+    href: "https://iptv-kastje-kopen.shop/product/platinum-pack-12-maand-abonnement/",
 
     features: [
       '+50.000 Live IPTV-kanalen',
@@ -102,7 +105,7 @@ const pricingPlans = [
             </ul>
             
             <a 
-              href="#" 
+              href={plan.href} 
               class="block w-full bg-orange-500 text-white py-4 text-center font-bold rounded-lg hover:bg-orange-600 transition-colors duration-300 shadow-md hover:shadow-lg"
             >
               Koop Nu
