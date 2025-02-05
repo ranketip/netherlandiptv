@@ -15,6 +15,63 @@ export async function getStaticPaths() {
 
 const { region, cities } = Astro.props;
 
+const pricingPlans = [
+  {
+    name: 'SILVER',
+    price: '€11,99',
+    duration: '1 Maand',
+    href: "https://iptv-kastje-kopen.shop/product/silver-pack-1-maand-abonnement/",
+ 
+    features: [
+      '+50.000 Live IPTV-kanalen',
+      '+50.000 VOD',
+      'Ondersteuning voor alle apparaten',
+      'TV-gids (EPG)',
+      'Catch Up / EPG UK-kanalen',
+      'AntiFreeze Technologie',
+      'VOD in meerdere talen',
+      'Multiplatform Integratie',
+      '24/7 Ondersteuning'
+    ]
+  },
+  {
+    name: 'GOLD',
+    price: '€47,99',
+    duration: '6 Maanden',
+    href: "https://iptv-kastje-kopen.shop/product/gold-pack-6-maand-abonnement/",
+   
+    features: [
+      '+50.000 Live IPTV-kanalen',
+      '+50.000 VOD',
+      'Ondersteuning voor alle apparaten',
+      'TV-gids (EPG)',
+      'Catch Up / EPG UK-kanalen',
+      'AntiFreeze Technologie',
+      'VOD in meerdere talen',
+      'Multiplatform Integratie',
+      '24/7 Ondersteuning'
+    ]
+  },
+  {
+    name: 'PLATINUM',
+    price: '€59,99',
+    duration: '1 Jaar',
+    href: "https://iptv-kastje-kopen.shop/product/platinum-pack-12-maand-abonnement/",
+
+    features: [
+      '+50.000 Live IPTV-kanalen',
+      '+50.000 VOD',
+      'Ondersteuning voor alle apparaten',
+      'TV-gids (EPG)',
+      'Catch Up / EPG UK-kanalen',
+      'AntiFreeze Technologie',
+      'VOD in meerdere talen',
+      'Multiplatform Integratie',
+      '24/7 Ondersteuning'
+    ]
+  }
+];
+
 const providers = [
   {
     name: `iptv-kastje-kopen.nl ${region}`,
@@ -116,6 +173,55 @@ const benefits = [
         </ul>
         <h3 class="text-lg font-medium mt-10 text-gray-900">Bij iptv-kastje-kopen.nl helpen we je de beste IPTV-abonnementen en IPTV kastjes te vinden, zodat je optimaal kunt genieten van jouw favoriete programma's in {region}.
         </h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="bg-white text-gray-900 py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      {/* Pricing Section */}
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
+          Prijzen Pakketten {region}
+        </h2>
+      </div>
+  
+      <div class="grid md:grid-cols-3 gap-8">
+        {pricingPlans.map((plan) => (
+          <div class="bg-white border-2 border-orange-500 rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-4xl">
+            <div class={`
+              py-4 text-black text-center font-bold text-xl 
+              bg-gradient-to-r
+            `}>
+              {plan.name}
+            </div>
+            
+            <div class="p-8">
+              <div class="text-center mb-6">
+                <div class="text-4xl font-bold text-orange-600 mb-2">{plan.price}</div>
+                <p class="text-gray-600">{plan.duration} IPTV-abonnement</p>
+              </div>
+              
+              <ul class="space-y-4 mb-8">
+                {plan.features.map((feature) => (
+                  <li class="flex items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              <a 
+                href={plan.href} 
+                class="block w-full bg-orange-500 text-white py-4 text-center font-bold rounded-lg hover:bg-orange-600 transition-colors duration-300 shadow-md hover:shadow-lg"
+              >
+                Koop Nu
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
