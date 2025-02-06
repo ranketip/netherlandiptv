@@ -1,14 +1,17 @@
 ---
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { generateSchema } from '../utils/schema';
 interface Props {
 	title: string,
 	description: string,
+	location: string,
 }
 const site = "https://iptv-kastje-kopen.nl";
 const url = site + Astro.url.pathname;
 
-const {title, description} = Astro.props;
+const {title, description, location} = Astro.props;
+const schema = generateSchema(location);
 ---
 
 
@@ -22,6 +25,7 @@ const {title, description} = Astro.props;
     	<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 	</head>
 	<body>
 		<Header />
