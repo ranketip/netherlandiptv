@@ -1,8 +1,11 @@
 ---
 import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
+import ShowCase from '../components/ShowCase';
 import Pricing from '../components/Pricing.astro';
 import Providers from '../components/Providers.astro';
+import Sports from '../components/Sports.astro';
+import Movies from '../components/Movies.astro';
 import Kastje from '../components/Kastje.astro';
 import LegalFAQ from '../components/LegalFAQ.astro';
 import Calltoaction from '../components/Calltoaction.astro';
@@ -14,8 +17,11 @@ import Calltoaction from '../components/Calltoaction.astro';
 
 <Layout location='Netherlands' title='IPTV Kopen in Nederland | Beste IPTV Kastje voor 2025 | Snelle Levering' description='Ontdek de beste IPTV-abonnementen en IPTV kastjes in Nederland. Vergelijk aanbieders, krijg tips voor legale IPTV en vind het perfecte IPTV kastje voor 2025. Snel en betrouwbaar!'>
 	<Hero />
+	<ShowCase client:load/>
 	<Pricing />
+	<Sports />
 	<Providers />
+	<Movies />
 	<Kastje />
 	<LegalFAQ />
 	<Calltoaction />
