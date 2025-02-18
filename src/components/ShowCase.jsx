@@ -15,11 +15,11 @@ const VideoShowcase = () => {
   const secondRow = channelLogos.slice(3);
 
   return (
-    <div className="w-full bg-black min-h-screen">
+    <div className="mt-12 md:mt-0 w-full bg-black min-h-[50vh]">
       {/* Video section */}
-      <div className="w-full flex items-center justify-center h-[50vh] md:h-screen">
+      <div className="w-full flex items-center justify-center h-[50vh]">
         <video
-          className="w-full h-full object-contain"
+          className="w-full lg:w-1/2 h-full object-contain"
           autoPlay
           muted
           loop

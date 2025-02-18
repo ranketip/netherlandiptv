@@ -5,7 +5,7 @@
 <section class="w-full py-16 bg-black">
     <div class="max-w-7xl mx-auto px-4">
       <!-- Custom grid for specific mobile layout -->
-      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         <!-- Movie 1 -->
         <div class="aspect-[2/3] overflow-hidden rounded-lg">
           <img
@@ -27,10 +27,19 @@
         </div>
   
         <!-- Movie 3 - centered on mobile -->
-        <div class="col-span-2 lg:col-span-1 max-w-[50%] mx-auto lg:max-w-full aspect-[2/3] overflow-hidden rounded-lg">
+        <div class="aspect-[2/3] overflow-hidden rounded-lg">
           <img
             src="/movies/film3.jpg"
             alt="Movie 3"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="aspect-[2/3] overflow-hidden rounded-lg">
+          <img
+            src="/movies/film4.jpg"
+            alt="Movie 4"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             loading="lazy"
           />

@@ -1,10 +1,11 @@
 ---
+import Watis from "../components/Watis"
+
 const pricingPlans = [
   {
     name: 'SILVER',
     price: '€11,99',
     duration: '1 Maand',
-    href: "https://iptv-kastje-kopen.shop/product/silver-pack-1-maand-abonnement/",
  
     features: [
       '+50.000 Live IPTV-kanalen',
@@ -22,7 +23,6 @@ const pricingPlans = [
     name: 'GOLD',
     price: '€47,99',
     duration: '6 Maanden',
-    href: "https://iptv-kastje-kopen.shop/product/gold-pack-6-maand-abonnement/",
    
     features: [
       '+50.000 Live IPTV-kanalen',
@@ -40,7 +40,6 @@ const pricingPlans = [
     name: 'PLATINUM',
     price: '€59,99',
     duration: '1 Jaar',
-    href: "https://iptv-kastje-kopen.shop/product/platinum-pack-12-maand-abonnement/",
 
     features: [
       '+50.000 Live IPTV-kanalen',
@@ -61,13 +60,7 @@ const pricingPlans = [
   <div class="container mx-auto px-4 max-w-7xl">
     {/* Introduction Section */}
     <div class="max-w-3xl mx-auto text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-        Wat is IPTV en Waarom IPTV Kopen in Nederland?
-      </h2>
-      <p class="text-lg text-gray-700 leading-relaxed">
-        IPTV (Internet Protocol Television) is de toekomst van televisie kijken. Met IPTV stream je live tv, films en series via het internet, zonder dure abonnementen of ingewikkelde installaties. 
-        In Nederland wordt IPTV kopen steeds populairder vanwege de brede keuze aan internationale zenders, on-demand content en scherpe prijzen.
-      </p>
+      <Watis client:load>
     </div>
 
     {/* Pricing Section */}
@@ -105,7 +98,7 @@ const pricingPlans = [
             </ul>
             
             <a 
-              href={plan.href} 
+              href="#" 
               class="block w-full bg-orange-500 text-white py-4 text-center font-bold rounded-lg hover:bg-orange-600 transition-colors duration-300 shadow-md hover:shadow-lg"
             >
               Koop Nu
